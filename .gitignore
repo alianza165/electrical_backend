@@ -1,0 +1,24 @@
+# created by virtualenv automatically
+venv/
+.venv/
+
+# Django-related
+*.sqlite3
+*.pyc
+*.pyo
+__pycache__/
+db.sqlite3
+
+# Static and media files
+/static/
+/media/
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs and debugging files
+*.log
