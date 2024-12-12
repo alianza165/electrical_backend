@@ -188,7 +188,7 @@ class GoogleLoginView(SocialLoginView):
             refresh = RefreshToken.for_user(user)
             jwt_access_token = str(refresh.access_token)
             jwt_refresh_token = str(refresh)
-
+            print(jwt_access_token)
            # Return the tokens
             return Response({
                 "access_token": jwt_access_token,

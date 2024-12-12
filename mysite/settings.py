@@ -79,7 +79,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
     #local
-    'accounts'
+    'accounts',
+    'electrical',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
