@@ -230,6 +230,12 @@ class GoogleLoginView(SocialLoginView):
 
 #        return response
 
+class TestView(APIView):
+    permission_classes = [AllowAny]
+    def get(self, request):
+        # If this method is called, the user is authenticated
+        return Response({"message": "test view"})
+
 class ProtectedView(APIView):
     permission_classes = [IsAuthenticated]
 

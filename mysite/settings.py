@@ -32,8 +32,8 @@ SECRET_KEY = 'django-insecure-!z_!i@4x^9&ylq7gnjgoojvzi^hajn6okr&z^sfgb#_8r72t8#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.226.46.93', 'www.princeautomation.org']
-
+ALLOWED_HOSTS = ['3.220.111.211', 'www.princeautomation.org', 'technologyhax.com', 'www.technologyhax.com', "127.0.0.1", "localhost",]
+#ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -100,6 +100,7 @@ REST_USE_JWT = True
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -108,7 +109,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 CACHES = {
@@ -245,31 +245,41 @@ EMAIL_HOST_USER = config['EMAIL_ID']
 EMAIL_HOST_PASSWORD = config['EMAIL_PASS']
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'https://www.technologyhax.com',
-    "https://example.com",
+    "http://3.220.111.211:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:3000",
+    "https://www.technologyhax.com",
+    "https://technologyhax.com",
+    "http://127.0.0.1:3001",  # Your Next.js frontend
+    "http://localhost:3001",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:3001",  # Your Next.js frontend
+    "http://localhost:3001",
     "http://localhost:3000",
-    'https://www.technologyhax.com',
-    "https://example.com",
+    "http://127.0.0.1:3000",
+    "https://www.technologyhax.com",
+    "https://technologyhax.com",
 ]
 
-CORS_ALLOW_CREDENTIALS = True  # If you need to allow credentials (e.g., cookies, authorization headers)
+CORS_ALLOW_CREDENTIALS = True  # Required for cookies or authorization headers
 CORS_ALLOW_HEADERS = [
+    'accept',
     'authorization',
     'content-type',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
 ]
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+STATIC_URL = '/backend/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/backend/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

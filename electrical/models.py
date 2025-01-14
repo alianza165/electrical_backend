@@ -48,7 +48,7 @@ class Component(models.Model):
     name = models.CharField(max_length=255, help_text="Component name (e.g., 3P Breaker, Contactor)")
     type = models.CharField(max_length=50, choices=PANEL_COMPONENT_TYPES, help_text="Component type")
     quantity = models.PositiveIntegerField(default=1, help_text="Number of components used")
-    unit_price = models.DecimalField(max_digits=10, decimal_places=2, help_text="Price per unit of this component")
+    unit_price = models.DecimalField(max_digits=10, decimal_places=2, help_text="Price per unit of this component", null=True, blank=True)
     total_price = models.DecimalField(max_digits=10, decimal_places=2, help_text="Total price for the component")
     specifications = models.JSONField(null=True, blank=True, help_text="Additional specs (e.g., amperage, voltage)")
 

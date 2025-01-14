@@ -1,6 +1,8 @@
 # created by virtualenv automatically
 venv/
 .venv/
+/lib/
+/bin/
 
 # Django-related
 *.sqlite3
